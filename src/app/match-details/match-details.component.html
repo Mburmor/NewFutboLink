@@ -1,0 +1,50 @@
+<ion-header translucent>
+  <ion-toolbar color="success">
+    <ion-title>
+      Detalles del Partido
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="match">
+    <ion-card-header>
+      <ion-card-subtitle>{{ match.time | date: 'fullDate' }}</ion-card-subtitle>
+      <ion-card-title>{{ match.location }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-icon slot="start" name="time-outline"></ion-icon>
+          <ion-label>Hora</ion-label>
+          <ion-note slot="end">{{ match.time | date: 'shortTime' }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="football-outline"></ion-icon>
+          <ion-label>Tipo</ion-label>
+          <ion-note slot="end">{{ match.type }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          <ion-label>Creado por</ion-label>
+          <ion-note slot="end">{{ match.creatorName }}</ion-note>
+        </ion-item>
+        <ion-item *ngIf="isCreator">
+          <ion-input placeholder="Nombre del jugador invitado" [(ngModel)]="invitedPlayerName"></ion-input>
+          <ion-button (click)="invitePlayer()">Añadir</ion-button>
+        </ion-item>
+      </ion-list>
+      <app-player-list 
+        [match]="match" 
+        (updateMatch)="handlePlayerJoined()" 
+        (playerRemoved)="handlePlayerRemoved()">
+      </app-player-list>
+      <ion-button *ngIf="isCreator" expand="block" color="danger" (click)="deleteMatch()">Eliminar Partido</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

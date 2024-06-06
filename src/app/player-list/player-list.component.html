@@ -1,0 +1,24 @@
+<ion-list *ngIf="match">
+  <ion-list-header>Jugadores Apuntados</ion-list-header>
+  <ng-container *ngIf="players$ | async as players; else loading">
+    <ng-container *ngFor="let player of players; let i = index">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="player.photoURL || 'assets/default-avatar.png'" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ (i + 1) + '. ' + player.nombre }}</h2>
+        </ion-label>
+        <ion-button *ngIf="isCreator" (click)="removePlayer(player.id)" slot="end" color="danger">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ng-container>
+  </ng-container>
+  <ng-template #loading>
+    Cargando...
+  </ng-template>
+</ion-list>
+
+<ion-button expand="block" color="success" (click)="joinMatch()">Apuntarse</ion-button>
+<ion-button expand="block" color="danger" (click)="leaveMatch()">Borrarse</ion-button>

@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <section>
+      <form (ngSubmit)="onLogin()">
+        <h1>Login</h1>
+        <div class="inputbox">
+          <ion-icon name="mail-outline"></ion-icon>
+          <ion-input type="text" required [(ngModel)]="user.email" name="email" placeholder="Correo"></ion-input>
+        </div>
+        <div class="inputbox">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input type="password" required [(ngModel)]="user.password" name="password" placeholder="Contraseña"></ion-input>
+        </div>
+        <ion-button expand="block" type="submit">Entrar</ion-button>
+        <ion-button expand="block" color="danger" (click)="onLoginWithGoogle()">Iniciar sesión con Google</ion-button>
+        <div class="register">
+          <p>No tengo una cuenta <a routerLink="/register">Crea una cuenta</a></p>
+        </div>
+      </form>
+    </section>
+  </div>
+</ion-content>

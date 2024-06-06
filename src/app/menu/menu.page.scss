@@ -1,0 +1,115 @@
+.background {
+  background-image: url('../../assets/stadium.jpg'); /* Añade tu imagen de fondo aquí */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Ajusta la altura al 100% de la vista */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-item.menu-item {
+  --background: transparent; /* Fondo transparente para permitir ver la imagen de fondo */
+  --border-radius: 20px; /* Bordes redondeados */
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --min-height: 150px; /* Altura mínima ajustada */
+  margin: 10px 0; /* Márgenes ajustados */
+  transition: transform 0.3s ease, background 0.3s ease;
+  background-size: cover; /* Ajusta la imagen de fondo al tamaño del botón */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px; /* Bordes redondeados */
+}
+
+ion-item.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Filtro negro semitransparente */
+  z-index: 0;
+  border-radius: 20px; /* Bordes redondeados para el filtro */
+}
+
+ion-item.menu-item:hover {
+  transform: scale(1.02);
+}
+
+ion-item.menu-item.create-match {
+  background-image: url("../../assets/img-button/create.jpg"); /* Ruta de la imagen de fondo para Crear Partido */
+  background-position: center top; /* Desplaza la imagen hacia abajo */
+  background-position-y: -20px; /* Ajusta este valor para desplazar la imagen hacia abajo */
+}
+
+ion-item.menu-item.match-list {
+  background-image: url("../../assets/img-button/list.jpg"); /* Ruta de la imagen de fondo para Lista de Partidos */
+}
+
+ion-item.menu-item.fotografias {
+  background-image: url("../../assets/img-button/fotos.webp"); /* Ruta de la imagen de fondo para Fotografías */
+}
+
+ion-item.menu-item.tactibot {
+  background-image: url("../../assets/img-button/tactibot.webp"); /* Ruta de la imagen de fondo para Tactibot */
+}
+
+ion-icon {
+  font-size: 4em; /* Tamaño del icono */
+  z-index: 1; /* Asegura que el icono esté delante del filtro */
+}
+
+.large-text {
+  font-size: 20px; /* Tamaño del texto */
+  font-weight: 500;
+  z-index: 1; /* Asegura que el texto esté delante del filtro */
+  color: #ffffff; /* Asegura que el texto sea blanco y visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-3d-wrap {
+    width: 280px;
+    height: 280px;
+  }
+
+  ion-item.menu-item {
+    --min-height: 120px;
+  }
+
+  ion-icon {
+    font-size: 3em;
+  }
+
+  .large-text {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-3d-wrap {
+    width: 240px;
+    height: 240px;
+  }
+
+  ion-item.menu-item {
+    --min-height: 100px;
+  }
+
+  ion-icon {
+    font-size: 2.5em;
+  }
+
+  .large-text {
+    font-size: 16px;
+  }
+}

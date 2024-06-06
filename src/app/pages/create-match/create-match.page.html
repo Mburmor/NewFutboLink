@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/menu" color="light">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Crear Partido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onCreateMatch()">
+    <ion-item>
+      <ion-label position="floating">Ubicación</ion-label>
+      <ion-input type="text" [(ngModel)]="newMatch.location" name="location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fecha y Hora</ion-label>
+      <ion-datetime 
+        display-format="D MMM YYYY H:mm" 
+        picker-format="D MMM YYYY H:mm" 
+        [(ngModel)]="newMatch.time" 
+        name="datetime">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tipo de Partido</ion-label>
+      <ion-select [(ngModel)]="newMatch.type" name="type" (ionChange)="updateMaxPlayers()">
+        <ion-select-option value="5v5">Fútbol Sala (5v5)</ion-select-option>
+        <ion-select-option value="7v7">Fútbol 7 (7v7)</ion-select-option>
+        <ion-select-option value="11v11">Fútbol 11 (11v11)</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Partido Privado</ion-label>
+      <ion-checkbox [(ngModel)]="newMatch.isPrivate" name="isPrivate"></ion-checkbox>
+    </ion-item>
+
+    <ion-item *ngIf="newMatch.isPrivate">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="newMatch.password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="success" type="submit">Crear Partido</ion-button>
+
+    <ion-item *ngIf="errorMessage" color="danger">
+      <ion-label>{{ errorMessage }}</ion-label>
+    </ion-item>
+  </form>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/menu">
+        <ion-icon name="arrow-back-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Lista de Partidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Seleccione un tipo</ion-label>
+    <ion-select [(ngModel)]="selectedType" (ionChange)="onTypeChange()" interface="popover">
+      <ion-select-option value="">Todos</ion-select-option>
+      <ion-select-option value="5v5">Fut Sala</ion-select-option>
+      <ion-select-option value="7v7">Fut 7</ion-select-option>
+      <ion-select-option value="11v11">Fut 11</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-card *ngFor="let match of filteredMatches">
+      <ion-item (click)="openMatchDetails(match)">
+        <ion-icon name="football" slot="start" color="success"></ion-icon>
+        <ion-label>
+          <h2>{{ match.location }}</h2>
+          <p>Fecha: {{ match.time | date: 'fullDate' }}</p>
+          <p>Hora: {{ match.time | date: 'shortTime' }}</p>
+          <p>Tipo: {{ match.type }}</p>
+        </ion-label>
+        <ion-icon *ngIf="match.isPrivate" name="lock-closed-outline" slot="end"></ion-icon>
+      </ion-item>
+      <ion-card-content>
+        <ion-button fill="outline" color="success" (click)="openMatchDetails(match)">Ver Detalles</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Herramientas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="block" color="danger" (click)="deleteAllMatches()">Eliminar Todos los Partidos</ion-button>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Registros de Inicio de Sesión</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let log of loginLogs">
+      <ion-label>
+        <h2>{{ log.nombre }} {{ log.apellidos }}</h2>
+        <p>{{ log.email }}</p>
+        <p>{{ log.timestamp?.toDate() | date:'medium' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>  
+  <!-- <ion-list>
+    <ion-list-header>Usuarios Registrados</ion-list-header>
+    <ion-item *ngFor="let user of users">
+      <ion-label>
+        <h2>{{ user.nombre }} {{ user.apellidos }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+      <ion-button slot="end" color="danger" (click)="deleteUser(user.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list> -->
+</ion-content>

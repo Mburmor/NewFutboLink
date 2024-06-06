@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registros de Inicio de Sesión</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin/tools"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Registros de Inicio de Sesión</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let log of loginLogs">
+      <ion-label>
+        <h2>{{ log.nombre }} {{ log.apellidos }}</h2>
+        <p>{{ log.email }}</p>
+        <p>{{ log.timestamp?.toDate() | date:'medium' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

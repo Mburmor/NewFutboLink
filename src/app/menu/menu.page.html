@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Menú</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onLogout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/profile']">
+        <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Bienvenido, {{ currentUser?.nombre }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="menu-background">
+  <div class="background">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6">
+          <ion-item [routerLink]="'/create-match'" lines="none" class="menu-item create-match">
+            <ion-icon name="add-circle-outline" slot="start" color="success"></ion-icon>
+            <ion-label class="large-text">Crear Partido</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-item [routerLink]="'/match-list'" lines="none" class="menu-item match-list">
+            <ion-icon name="list-outline" slot="start" color="success"></ion-icon>
+            <ion-label class="large-text">Lista de Partidos</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-item [routerLink]="'/fotografias'" lines="none" class="menu-item fotografias">
+            <ion-icon name="image-outline" slot="start" color="success"></ion-icon>
+            <ion-label class="large-text">Fotografías</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="6">
+          <ion-item [routerLink]="'/tactibot'" lines="none" class="menu-item tactibot">
+            <ion-icon name="chatbubble-outline" slot="start" color="success"></ion-icon>
+            <ion-label class="large-text">Tactibot</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

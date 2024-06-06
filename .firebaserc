@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "footballapp-z4bko",
+    "FutboLink": "futbolink"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
