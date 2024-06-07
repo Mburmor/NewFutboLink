@@ -73,6 +73,7 @@ export class ProfilePage implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe(url => {
             this.authService.updateProfile(this.user.nombre, url).then(() => {
+              this.user.photoURL = url; // Actualizar la URL de la foto de perfil localmente
               console.log('Perfil actualizado exitosamente');
             }).catch(error => {
               console.error('Error al actualizar el perfil', error);

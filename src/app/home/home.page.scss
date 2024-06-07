@@ -1,13 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 .background {
-  background-image: url('../../assets/stadium.jpg'); /* Ruta de la imagen de fondo */
+  background-image: url('../../assets/stadium.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh; /* Ajusta la altura al 100% de la vista */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 :host {
@@ -16,7 +36,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   line-height: 1.7;
-  color: #ffeba7;
+  color: #a7e0ff;
   background-color: #1f2029;
 }
 
@@ -25,7 +45,7 @@ a:hover {
 }
 
 .link {
-  color: #ffeba7;
+  color: #a7e0ff;
 }
 
 .link:hover {
@@ -39,7 +59,7 @@ p {
 
 h4 {
   font-weight: 600;
-  color: #ffeba7;
+  color: #a7e0ff;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -79,7 +99,7 @@ h6 {
 }
 
 .label-text {
-  color: #ffeba7;
+  color: #a7e0ff;
   font-size: 16px;
   font-weight: 600;
   margin: 0 10px;
@@ -99,7 +119,7 @@ h6 {
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #ffeba7;
+  background-color: #a7e0ff;
 }
 
 .checkbox + label:before {
@@ -126,9 +146,9 @@ h6 {
 
 .card-3d-wrap {
   position: relative;
-  width: 300px; /* Ajusta el tamaño del card aquí */
+  width: 300px;
   max-width: 100%;
-  height: 300px; /* Ajusta el tamaño del card aquí */
+  height: 300px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
@@ -175,7 +195,7 @@ h6 {
 .center-wrap {
   position: absolute;
   width: 100%;
-  padding: 0 20px; /* Ajustado para el tamaño más pequeño */
+  padding: 0 20px;
   top: 50%;
   left: 0;
   transform: translate3d(0, -50%, 35px) perspective(100px);
@@ -191,9 +211,9 @@ h6 {
 }
 
 .form-style {
-  padding: 10px 15px; /* Ajustado para el tamaño más pequeño */
-  padding-left: 45px; /* Ajustado para el tamaño más pequeño */
-  height: 40px; /* Ajustado para el tamaño más pequeño */
+  padding: 10px 15px;
+  padding-left: 45px;
+  height: 40px;
   width: 100%;
   font-weight: 500;
   border-radius: 4px;
@@ -220,9 +240,9 @@ h6 {
   position: absolute;
   top: 0;
   left: 18px;
-  height: 40px; /* Ajustado para el tamaño más pequeño */
-  font-size: 20px; /* Ajustado para el tamaño más pequeño */
-  line-height: 40px; /* Ajustado para el tamaño más pequeño */
+  height: 40px; 
+  font-size: 20px; 
+  line-height: 40px; 
   text-align: left;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
@@ -242,12 +262,68 @@ h6 {
   display: -ms-inline-flexbox;
   display: inline-flex;
   align-items: center;
-  background-color: #ffeba7;
+  background-color: #a7e0ff;
   color: #000000;
 }
 
 .btn:hover {
   background-color: #000000;
-  color: #ffeba7;
+  color: #a7e0ff;
   box-shadow: 0 8px 24px 0 rgba(16, 39, 112, .2);
+}
+
+.app-header {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .card-3d-wrap {
+    width: 260px;
+    height: 260px;
+  }
+
+  .center-wrap {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+
+  .card-3d-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
+  .center-wrap {
+    padding: 0 10px;
+  }
 }

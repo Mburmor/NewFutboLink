@@ -26,7 +26,7 @@ export class LoginPage {
           this.errorMessage = 'No se encontró un usuario con este correo electrónico.';
           break;
         default:
-          this.errorMessage = 'Error en el inicio de sesión. Intente nuevamente.';
+          this.errorMessage = 'Email o contraseña incorrecta, intente nuevamente.';
           console.error('Error en el inicio de sesión', error);
       }
     }

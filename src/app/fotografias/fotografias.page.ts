@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { PhotoService } from '../services/photo.service';
 import { Subscription } from 'rxjs';
@@ -8,10 +8,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './fotografias.page.html',
   styleUrls: ['./fotografias.page.scss'],
 })
-export class FotografiasPage implements OnInit {
+export class FotografiasPage implements OnInit, OnDestroy {
   public photos: any;
   private imagesSubscription: Subscription | undefined;
-
 
   constructor(public imageService: PhotoService) { }
 
@@ -40,15 +39,25 @@ export class FotografiasPage implements OnInit {
         quality: 100
       });
 
-      // Asegúrate de que image.webPath no sea undefined antes de usarlo.
       if (image.webPath) {
         this.photos.push(image.webPath);
       } else {
-        // Manejar la situación, por ejemplo, mostrar un error o un mensaje.
         console.error('No se pudo obtener el path de la imagen.');
       }
     } catch (error) {
       console.error(error);
     }
+  }
+
+  openImage(photo: string) {
+    const modal = document.getElementById('imageModal') as HTMLDivElement;
+    const modalImg = document.getElementById('modalImage') as HTMLImageElement;
+    modal.style.display = 'block';
+    modalImg.src = photo;
+  }
+
+  closeImage() {
+    const modal = document.getElementById('imageModal') as HTMLDivElement;
+    modal.style.display = 'none';
   }
 }

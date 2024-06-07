@@ -10,17 +10,26 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button expand="full" color="success" (click)="imageService.takePicture()">
-    <ion-icon slot="start" name="camera-outline"></ion-icon>
-    Tomar Foto
-  </ion-button>
+  <div class="photo-header">
+    <ion-button expand="full" color="success" (click)="imageService.takePicture()">
+      <ion-icon slot="start" name="camera-outline"></ion-icon>
+      Tomar Foto
+    </ion-button>
+  </div>
 
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photos">
-        <ion-img [src]="photo"></ion-img>
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let photo of photos" class="photo-column">
+        <div class="photo-container" (click)="openImage(photo)">
+          <ion-img [src]="photo" class="photo"></ion-img>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
 
+  <!-- Modal para la imagen ampliada -->
+  <div id="imageModal" class="image-modal" (click)="closeImage()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+</ion-content>

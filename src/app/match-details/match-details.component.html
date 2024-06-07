@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="match">
+  <ion-card *ngIf="match" class="match-card">
     <ion-card-header>
       <ion-card-subtitle>{{ match.time | date: 'fullDate' }}</ion-card-subtitle>
       <ion-card-title>{{ match.location }}</ion-card-title>

@@ -1,41 +1,74 @@
 .background {
-    background-image: url('../../../assets/stadium.jpg'); /* Añade tu imagen de fondo aquí */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Ajusta la altura al 100% de la vista */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .container {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para mejorar la legibilidad */
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .hero h1 {
-    font-size: 2.5em;
-    color: #ffffff;
-  }
-  
-  .hero p {
-    font-size: 1.2em;
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-  
-  .admin-access {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-  }
-  
-  ion-button {
-    --background: #ffffff;
-    --color: #000000;
-    --border-radius: 20px;
-    --padding: 10px 20px;
-  }
-  
+  background-image: url('../../../assets/stadium.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para mejorar la legibilidad */
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.app-description {
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+.app-description h2 {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #ffeba7;
+  margin-bottom: 10px;
+}
+
+.app-description p {
+  font-size: 1em;
+  margin: 10px 0;
+  line-height: 1.5;
+  color: #c4c3ca;
+}
+
+.admin-access {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+ion-button {
+  --background: #ffffff;
+  --color: #000000;
+  --border-radius: 20px;
+  --padding: 10px 20px;
+}

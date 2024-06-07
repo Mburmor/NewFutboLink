@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+:host {
+  --ion-background-color: #1f2029;
+  --ion-text-color: #a7e0ff;
+  display: block;
+  font-family: 'Poppins', sans-serif;
+}
+
+ion-header {
+  ion-toolbar {
+    background-color: #28a745; /* Color personalizado para el toolbar */
+  }
+}
+
+.photo-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  ion-button {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+ion-grid {
+  --ion-grid-padding: 0;
+  --ion-grid-column-padding: 0.5rem;
+}
+
+.photo-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.photo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.image-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 60px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.image-modal .close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.image-modal .close:hover,
+.image-modal .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image-modal .modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.image-modal .modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}

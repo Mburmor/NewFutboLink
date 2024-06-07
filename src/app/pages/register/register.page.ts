@@ -17,6 +17,7 @@ export class RegisterPage {
     apellidos: '',
     edad: null
   };
+  errorMessage = '';
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -26,8 +27,9 @@ export class RegisterPage {
   ) {}
 
   async onRegister() {
+    this.errorMessage = '';
     if (!this.user.email || !this.user.password || !this.user.nombre || !this.user.apellidos || this.user.edad == null) {
-      console.error('Todos los campos son necesarios');
+      this.errorMessage = 'Todos los campos son necesarios';
       return;
     }
     
@@ -50,15 +52,33 @@ export class RegisterPage {
       console.log('Usuario añadido a Firestore');
 
       this.router.navigate(['/login']);
-    } catch (error) {
-      console.error('Error en el registro', error);
+    } catch (error: any) {
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          this.errorMessage = 'El correo electrónico ya está en uso.';
+          break;
+        case 'auth/invalid-email':
+          this.errorMessage = 'El correo electrónico no es válido.';
+          break;
+        case 'auth/operation-not-allowed':
+          this.errorMessage = 'Operación no permitida. Contacta al administrador.';
+          break;
+        case 'auth/weak-password':
+          this.errorMessage = 'La contraseña es demasiado débil.';
+          break;
+        default:
+          this.errorMessage = 'Error en el registro. Intente nuevamente.';
+          console.error('Error en el registro', error);
+      }
     }
   }
 
   async onGoogleRegister() {
+    this.errorMessage = ''; // Limpiar mensaje de error anterior
     try {
       await this.authService.loginWithGoogle();
     } catch (error) {
+      this.errorMessage = 'Error en el registro con Google. Intente nuevamente.';
       console.error('Error en el registro con Google', error);
     }
   }

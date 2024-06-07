@@ -1,27 +1,40 @@
 .background {
-  background-image: url('../../assets/stadium.jpg'); /* Añade tu imagen de fondo aquí */
+  background-image: url('../../assets/stadium.jpg');
   background-size: cover;
   background-position: center;
-  height: 100vh; /* Ajusta la altura al 100% de la vista */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 ion-item.menu-item {
-  --background: transparent; /* Fondo transparente para permitir ver la imagen de fondo */
-  --border-radius: 20px; /* Bordes redondeados */
+  --background: transparent;
+  --border-radius: 20px;
   --padding-start: 10px;
   --padding-end: 10px;
-  --min-height: 150px; /* Altura mínima ajustada */
-  margin: 10px 0; /* Márgenes ajustados */
+  --min-height: 150px;
+  margin: 10px 0;
   transition: transform 0.3s ease, background 0.3s ease;
-  background-size: cover; /* Ajusta la imagen de fondo al tamaño del botón */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
   overflow: hidden;
-  border-radius: 20px; /* Bordes redondeados */
+  border-radius: 20px;
 }
 
 ion-item.menu-item::before {
@@ -31,9 +44,9 @@ ion-item.menu-item::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Filtro negro semitransparente */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 0;
-  border-radius: 20px; /* Bordes redondeados para el filtro */
+  border-radius: 20px;
 }
 
 ion-item.menu-item:hover {
@@ -41,33 +54,33 @@ ion-item.menu-item:hover {
 }
 
 ion-item.menu-item.create-match {
-  background-image: url("../../assets/img-button/create.jpg"); /* Ruta de la imagen de fondo para Crear Partido */
-  background-position: center top; /* Desplaza la imagen hacia abajo */
-  background-position-y: -20px; /* Ajusta este valor para desplazar la imagen hacia abajo */
+  background-image: url("../../assets/img-button/create.jpg"); 
+  background-position: center top;
+  background-position-y: -20px;
 }
 
 ion-item.menu-item.match-list {
-  background-image: url("../../assets/img-button/list.jpg"); /* Ruta de la imagen de fondo para Lista de Partidos */
+  background-image: url("../../assets/img-button/list.jpg");
 }
 
 ion-item.menu-item.fotografias {
-  background-image: url("../../assets/img-button/fotos.webp"); /* Ruta de la imagen de fondo para Fotografías */
+  background-image: url("../../assets/img-button/fotos.webp"); 
 }
 
 ion-item.menu-item.tactibot {
-  background-image: url("../../assets/img-button/tactibot.webp"); /* Ruta de la imagen de fondo para Tactibot */
+  background-image: url("../../assets/img-button/tactibot.webp"); 
 }
 
 ion-icon {
-  font-size: 4em; /* Tamaño del icono */
-  z-index: 1; /* Asegura que el icono esté delante del filtro */
+  font-size: 3em; /* Tamaño del icono */
+  z-index: 1;
 }
 
 .large-text {
-  font-size: 20px; /* Tamaño del texto */
+  font-size: 30px; /* Tamaño del texto */
   font-weight: 500;
-  z-index: 1; /* Asegura que el texto esté delante del filtro */
-  color: #ffffff; /* Asegura que el texto sea blanco y visible */
+  z-index: 1;
+  color: #ffffff; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +88,6 @@ ion-icon {
   text-align: center;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .card-3d-wrap {
     width: 280px;

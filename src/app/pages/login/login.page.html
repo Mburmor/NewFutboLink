@@ -1,14 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button routerLink="/home">
-        <ion-icon name="home-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Iniciar sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div class="background">
     <section>
@@ -26,6 +15,9 @@
         <ion-button expand="block" color="danger" (click)="onLoginWithGoogle()">Iniciar sesión con Google</ion-button>
         <div class="register">
           <p>No tengo una cuenta <a routerLink="/register">Crea una cuenta</a></p>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
         </div>
       </form>
     </section>

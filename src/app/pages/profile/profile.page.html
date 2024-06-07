@@ -16,32 +16,32 @@
       <ion-card-subtitle>{{ user.email }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-avatar slot="start">
+      <ion-avatar slot="start" class="profile-avatar">
         <img [src]="user.photoURL || 'assets/default-avatar.png'" alt="Foto de perfil">
       </ion-avatar>
       <ion-list lines="none">
-        <ion-item>
+        <ion-item class="profile-item">
           <ion-icon slot="start" name="person-outline"></ion-icon>
           <ion-label>Nombre</ion-label>
           <ion-note slot="end">{{ user.nombre }}</ion-note>
         </ion-item>
-        <ion-item>
+        <ion-item class="profile-item">
           <ion-icon slot="start" name="person-outline"></ion-icon>
           <ion-label>Apellidos</ion-label>
           <ion-note slot="end">{{ user.apellidos }}</ion-note>
         </ion-item>
-        <ion-item>
+        <ion-item class="profile-item">
           <ion-icon slot="start" name="calendar-outline"></ion-icon>
           <ion-label>Edad</ion-label>
           <ion-note slot="end">{{ user.edad }}</ion-note>
         </ion-item>
       </ion-list>
-      <ion-item>
+      <ion-item class="profile-item">
         <ion-label>Foto de Perfil</ion-label>
         <input type="file" (change)="onFileSelected($event)" accept="image/*">
       </ion-item>
-      <ion-button expand="block" (click)="takePicture()">Tomar Foto</ion-button>
-      <ion-button expand="block" (click)="updateProfile()">Actualizar Perfil</ion-button>
+      <ion-button expand="block" color="primary" (click)="takePicture()">Tomar Foto</ion-button>
+      <ion-button expand="block" color="success" (click)="updateProfile()">Actualizar Perfil</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

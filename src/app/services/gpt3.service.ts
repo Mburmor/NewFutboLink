@@ -5,8 +5,8 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class Gpt3Service {
-  private apiUrl = 'https://api.openai.com/v1/chat/completions'; // Endpoint correcto para el modelo GPT-3.5-turbo-16k
-  private apiKey = 'sk-proj-R95f2SZJU1YbnKQ57pHUT3BlbkFJLAkGWPBmzjh24gEBsv4z'; // Reemplaza esto con tu API Key real
+  private apiUrl = 'https://api.openai.com/v1/chat/completions'; // Endpoint para el modelo GPT-3.5-turbo-16k
+  private apiKey = 'sk-proj-StCfpHy934IJfEBnvNTST3BlbkFJngkVtg7VAMhuMa69qAvf';
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class Gpt3Service {
       const response = await axios.post(this.apiUrl, {
         model: 'gpt-3.5-turbo-16k',
         messages: messages,
-        max_tokens: 150,
+        max_tokens: 500,
         temperature: 1,
         top_p: 1,
         frequency_penalty: 0,
